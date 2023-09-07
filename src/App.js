@@ -49,7 +49,6 @@ function App() {
          } 
       ]
     );
-    console.log(flightList)
   };
 
 
@@ -68,6 +67,7 @@ function App() {
         <p>
           it's like expedia but for poor ppl
         </p>
+
         <div className='input-bubble'>
           <div className='input-bubble-row'>
             <input
@@ -104,8 +104,14 @@ function App() {
         </div>
 
         <div className='flight-list'>
+
           {flightList.map(flight => (
-            <li>{flight.sDate}</li>
+            <div className='listnode-bubble'>
+              amongus
+            </div>
+
+            // Create flight list node component
+            // props: price, startDate, returnDate, company, link (create warning before following link onClick)
           ))}
         </div>
 
