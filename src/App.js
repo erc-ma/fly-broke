@@ -11,7 +11,7 @@ function App() {
   const [destLoc, setDestLoc] = useState('');
   const [startDate, setStartDate] = useState('');
   const [returnDate, setReturnDate] = useState('');
-  const [flightList, setFlightList] = useState('');
+  const [flightList, setFlightList] = useState([]);
 
 
   // Function to handle changes in the input field
@@ -31,6 +31,7 @@ function App() {
 
 
 
+
   const handleSearch = () => {
     // Call your search function with the search term
     // Replace this with your actual search logic
@@ -38,6 +39,17 @@ function App() {
     console.log('Destination:', destLoc);
     console.log('Start Date:', startDate);
     console.log('Return Date:', returnDate);
+    setFlightList( 
+      [ 
+        ...flightList, 
+        {  oLoc: originLoc,
+          dLoc: destLoc,
+          sDate: startDate,
+          rDate: returnDate,
+         } 
+      ]
+    );
+    console.log(flightList)
   };
 
 
@@ -48,12 +60,14 @@ function App() {
 
 
       <main className='App-main'>
-        <img className='' src='https://www.gstatic.com/travel-frontend/animation/hero/flights_3.svg'>
+        <img className='graphic' src='https://www.gstatic.com/travel-frontend/animation/hero/flights_3.svg'>
         </img>
         <h1>
           Fly Broke :/
         </h1>
-
+        <p>
+          it's like expedia but for poor ppl
+        </p>
         <div className='input-bubble'>
           <div className='input-bubble-row'>
             <input
@@ -85,15 +99,17 @@ function App() {
             />
 
           </div>
+          <button className='search-button' onClick={handleSearch}>Go!</button>
 
         </div>
 
         <div className='flight-list'>
-          {/* {flightList.map(()=>null)} */}
+          {flightList.map(flight => (
+            <li>{flight.sDate}</li>
+          ))}
         </div>
 
-        <button className='search-button'onClick={handleSearch}>Go!</button>
-        
+
 
       </main>
 
