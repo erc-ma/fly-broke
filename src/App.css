@@ -1,5 +1,23 @@
+@font-face {
+  font-family: 'Product Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+}
+
 .App {
-  text-align: center;
+  font-family: 'Product Sans';
+
+  /* font-size: calc(10px + 2vmin); */
+}
+
+.App-main {
+  /* text-align: center; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
 }
 
 .App-logo {
@@ -16,21 +34,83 @@
 .App-header {
   background-color: #faf0e6;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+
+
+
+
   color: white;
+}
+
+
+
+h1 {
+  font-family: 'Product Sans';
+  font-size: 56px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  line-height: 64px;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-.input-bubble{
-  background-color: #faf0e6;
+.input-bubble {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  /* box-shadow: 1px 1px 1px 1px rgb(0, 0, 0); */
+  box-shadow: 0px 0px 24px -10px rgba(0, 0, 0, 0.75);
+  border-radius: 10px;
+  max-width: 90%;
+  min-width: 80%;
+  min-height: 20vh;
 }
+
+.input-bubble-row {
+  display: flex;
+  flex-direction: row;
+  /* align-items: center;
+  justify-content: center; */
+}
+
+.search-button {
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.search-button:hover {
+  background-color: #fff;
+}
+
+.search-button:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .button-74 {
+    min-width: 120px;
+    padding: 0 25px;
+  }
+}
+
 
 /* @keyframes App-logo-spin {
   from {

@@ -11,6 +11,7 @@ function App() {
   const [destLoc, setDestLoc] = useState('');
   const [startDate, setStartDate] = useState('');
   const [returnDate, setReturnDate] = useState('');
+  const [flightList, setFlightList] = useState('');
 
 
   // Function to handle changes in the input field
@@ -37,7 +38,6 @@ function App() {
     console.log('Destination:', destLoc);
     console.log('Start Date:', startDate);
     console.log('Return Date:', returnDate);
-
   };
 
 
@@ -48,51 +48,55 @@ function App() {
 
 
       <main className='App-main'>
+        <img className='' src='https://www.gstatic.com/travel-frontend/animation/hero/flights_3.svg'>
+        </img>
         <h1>
           Fly Broke :/
         </h1>
 
         <div className='input-bubble'>
-          <input
-            type="text"
-            placeholder="Origin..."
-            value={originLoc}
-            onChange={handleOriginLocChange}
-          />
+          <div className='input-bubble-row'>
+            <input
+              type="text"
+              placeholder="Origin..."
+              value={originLoc}
+              onChange={handleOriginLocChange}
+            />
 
-          <input
-            type="text"
-            placeholder="Destination..."
-            value={destLoc}
-            onChange={handleDestLocChange}
-          />
+            <input
+              type="text"
+              placeholder="Destination..."
+              value={destLoc}
+              onChange={handleDestLocChange}
+            />
+            <input
+              type="date"
+              id="start"
+              name="trip-start"
+              value={startDate}
+              onChange={handleStartDateChange}
+            />
+            <input
+              type="date"
+              id="end"
+              name="trip-end"
+              value={returnDate}
+              onChange={handleReturnDateChange}
+            />
 
-          <label for="start">Start date:</label>
-          <input
-            type="date"
-            id="start"
-            name="trip-start"
-            value={startDate}
-            onChange={handleStartDateChange}
-          />
-          <input
-            type="date"
-            id="end"
-            name="trip-end"
-            value={returnDate}
-            onChange={handleReturnDateChange}
-          />
+          </div>
+
         </div>
 
-        <button onClick={handleSearch}>Search</button>
+        <div className='flight-list'>
+          {/* {flightList.map(()=>null)} */}
+        </div>
+
+        <button className='search-button'onClick={handleSearch}>Go!</button>
+        
 
       </main>
 
-      <body>
-        <div className='listnode-container'>
-
-        </div>
-      </body>
     </div>
   );
 }
