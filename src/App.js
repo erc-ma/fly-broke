@@ -12,6 +12,7 @@ function App() {
   const [startDate, setStartDate] = useState('');
   const [returnDate, setReturnDate] = useState('');
   const [flightList, setFlightList] = useState([]);
+  const [searched, setSearched] = useState(Boolean);
 
 
   // Function to handle changes in the input field
@@ -33,20 +34,25 @@ function App() {
 
 
   const handleSearch = () => {
+    setSearched(true);
     // Call your search function with the search term
     // Replace this with your actual search logic
     console.log('Origin:', originLoc);
     console.log('Destination:', destLoc);
     console.log('Start Date:', startDate);
     console.log('Return Date:', returnDate);
-    setFlightList( 
-      [ 
-        ...flightList, 
-        {  oLoc: originLoc,
+    setFlightList(
+      [
+        ...flightList,
+        {
+          oLoc: originLoc,
           dLoc: destLoc,
           sDate: startDate,
           rDate: returnDate,
-         } 
+          price: 0,
+          company: "amongus company",
+          href: "amongus link"
+        }
       ]
     );
   };
@@ -103,17 +109,24 @@ function App() {
 
         </div>
 
-        <div className='flight-list'>
+        <div className='searchresults'>
+          <div className='searched-indic'>
+            {searched ? "Now showing "+originLoc : null}
+          </div>
 
-          {flightList.map(flight => (
-            <div className='listnode-bubble'>
-              amongus
-            </div>
+          <div className='flight-list'>
+            {flightList.map(flight => (
+              <div className='listnode-bubble'>
+                {"Origin: "+ flight.oLoc + ". Destination: "+flight.dLoc }
+              </div>
 
-            // Create flight list node component
-            // props: price, startDate, returnDate, company, link (create warning before following link onClick)
-          ))}
+              // Create flight list node component
+              // props: price, startDate, returnDate, company, link (create warning before following link onClick)
+            ))}
+          </div>
         </div>
+
+
 
 
 
