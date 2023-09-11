@@ -110,14 +110,44 @@ function App() {
         </div>
 
         <div className='searchresults'>
+
+          <div style="height:500px;width: 500px;">
+            <div id="kayakSearchWidgetContainer"></div>
+          </div>
+          <script type="text/javaScript" src="https://www.kayak.com/affiliate/widget-v2.js"></script>
+          <script type="text/javaScript">
+            {KAYAK.embed({
+              container: document.getElementById("kayakSearchWidgetContainer"),
+            hostname: "www.kayak.com",
+            autoPosition: true,
+            defaultProduct: "hotels",
+            enabledProducts: ["hotels", "flights"],
+            startDate: "2018-10-02",
+            endDate: "2018-10-28",
+            origin: "New York, NY",
+            destination: "Boston, MA",
+            ssl: true,
+            affiliateId: "acme_corp",
+            isInternalLoad: false,
+            lc: "en",
+            cc: "us",
+            mc: "EUR"
+})}
+          </script>
+
+
+
+
+
+
           <div className='searched-indic'>
-            {searched ? "Now showing "+originLoc : null}
+            {searched ? "Now showing " + originLoc : null}
           </div>
 
           <div className='flight-list'>
             {flightList.map(flight => (
               <div className='listnode-bubble'>
-                {"Origin: "+ flight.oLoc + ". Destination: "+flight.dLoc }
+                {"Origin: " + flight.oLoc + ". Destination: " + flight.dLoc}
               </div>
 
               // Create flight list node component
